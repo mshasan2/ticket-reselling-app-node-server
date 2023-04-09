@@ -1,0 +1,12 @@
+{
+    "Ename": "Quiet Hours at Library",
+    "Edate": "2019-01-01",
+    "Etime": "10:00",
+    "Elocation": "Mumbai",
+    "Edescription": "This is a test event",
+    "EshortDescription": "This is a test event",
+    "EticketQuantity": 10,
+    "EticketPrice": 100,
+    "Ecategory": "Miscellaneous",
+    "Eorganizer": "Not Snell"
+}
