@@ -1,0 +1,29 @@
+import ReviewModel from "./reviews-model.js";
+
+export const createReview = async (review) => {
+    return await ReviewModel.create(review);
+}
+
+export const findAllReviews = async () => {
+    return await ReviewModel.find();
+}
+
+export const findReviewById = async (reviewId) => {
+    return await ReviewModel.findById(reviewId);
+}
+
+export const findReviewsByEventId = async (eventId) => {
+    return await ReviewModel.find({event: eventId});
+}
+
+export const findReviewsByUserId = async (userId) => {
+    return await ReviewModel.find({user: userId});
+}
+
+export const updateReview = async (reviewId, review) => {
+    return await ReviewModel.updateOne({_id: reviewId}, {$set: review})
+}
+
+export const deleteReview = async (reviewId) => {
+    return await ReviewModel.deleteOne({_id: reviewId});
+}

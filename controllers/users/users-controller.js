@@ -1,28 +1,28 @@
 import * as usersDao from './users-dao.js';
 
-export const createUser = async (req, res) => {
+const createUser = async (req, res) => {
     const newUser = await usersDao.createUser(req.body);
     res.json(newUser);
 }
 
-export const findAllUsers = async (req, res) => {
+const findAllUsers = async (req, res) => {
     const users = await usersDao.findAllUsers();
     res.json(users);
 }
 
-export const findUserById = async (req, res) => {
+const findUserById = async (req, res) => {
     const userId = req.params['userId'];
     const user = await usersDao.findUserById(userId);
     res.json(user);
 }
 
-export const findUserByUsername = async (req, res) => {
+const findUserByUsername = async (req, res) => {
     const username = req.params['username'];
     const user = await usersDao.findUserByUsername(username);
     res.json(user);
 }
 
-export const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
     const userId = req.params['userId'];
     const user = req.body;
     const status = await usersDao.updateUser(userId, user);
@@ -33,7 +33,7 @@ export const updateUser = async (req, res) => {
     }
 }
 
-export const deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
     const userId = req.params['userId'];
     const status = await usersDao.deleteUser(userId);
     if (status.deletedCount === 1) {
@@ -44,7 +44,7 @@ export const deleteUser = async (req, res) => {
 }
 
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
     const username = req.body['Username'];
     const password = req.body['Password'];
     const user = await usersDao.findUserByUsername(username);
@@ -58,7 +58,7 @@ export const register = async (req, res) => {
 }
 
 
-export const profile = async (req, res) => {
+const profile = async (req, res) => {
     const currentUser = req.session['currentUser'];
     if (!currentUser) {
         res.sendStatus(404);
@@ -67,7 +67,7 @@ export const profile = async (req, res) => {
     res.json(currentUser);
 };
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
     const username = req.body['Username'];
     const password = req.body['Password'];
     const user = await usersDao.findUserByCredentials(username, password);
