@@ -1,7 +1,16 @@
 import UserModel from "./users-model.js";
 
 export const createUser = async (user) => {
+/*
     return await UserModel.create(user);
+*/
+
+    try {
+        return await UserModel.create(user);
+    } catch (err) {
+        console.error('Error creating user:', err);
+        throw new Error('Unable to create user');
+    }
 }
 
 export const findAllUsers = async () => {
@@ -9,7 +18,7 @@ export const findAllUsers = async () => {
 }
 
 export const findUserById = async (userId) => {
-    return await UserModel.findById(userId);
+    return UserModel.findById(userId);
 }
 
 export const updateUser = async (userId, user) => {
