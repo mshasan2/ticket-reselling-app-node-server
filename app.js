@@ -6,6 +6,7 @@ import EventsController from './controllers/events/events-controller.js';
 import UsersController from './controllers/users/users-controller.js';
 import session from 'express-session';
 import ReviewsController from './controllers/reviews/reviews-controller.js';
+import TicketsController from './controllers/tickets/tickets-controller.js';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
 const app = express();
@@ -29,6 +30,6 @@ HelloController(app);
 EventsController(app);
 UsersController(app);
 ReviewsController(app);
-
+TicketsController(app);
 
 app.listen(process.env.PORT || 4000);

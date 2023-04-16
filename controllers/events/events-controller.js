@@ -38,7 +38,14 @@ const deleteEvent = async (req, res) => {
     }
 }
 
+const searchEvents = async (req, res) => {
+    const query = req.query.Ename
+    const events = await eventsDao.searchEvents(query)
+    res.json(events)
+}
+
 export default (app) => {
+    app.get('/api/search', searchEvents)
     app.post('/api/events', createEvent)
     app.get('/api/events', findAllEvents)
     app.get('/api/events/:eventId', findEventById)
