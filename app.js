@@ -8,7 +8,12 @@ import ReviewsController from './controllers/reviews/reviews-controller.js';
 import TicketsController from './controllers/tickets/tickets-controller.js';
 import FollowersController from './controllers/followers/followers-controller.js';
 
+<<<<<<< Updated upstream
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/ticket-reselling-app";
+=======
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
+                          || 'mongodb://127.0.0.1:27017/ticket-reselling-app';
+>>>>>>> Stashed changes
 const app = express();
 app.use(session({
                     secret: "asdfasdfasdfasdf",
@@ -28,7 +33,10 @@ mongoose.connect(CONNECTION_STRING).then(() => console.log("Server started"));
 EventsController(app);
 UsersController(app);
 ReviewsController(app);
+<<<<<<< Updated upstream
 TicketsController(app);
 FollowersController(app);
+=======
+>>>>>>> Stashed changes
 
 app.listen(process.env.PORT || 4000);
