@@ -8,7 +8,6 @@ const createEvent = async (req, res) => {
 
 const findAllEvents = async (req, res) => {
     const events = await eventsDao.findAllEvents()
-    console.log(JSON.stringify(events));
     res.json(events)
 }
 
