@@ -6,6 +6,7 @@ import UsersController from './controllers/users/users-controller.js';
 import session from 'express-session';
 import ReviewsController from './controllers/reviews/reviews-controller.js';
 import TicketsController from './controllers/tickets/tickets-controller.js';
+import FollowersController from './controllers/followers/followers-controller.js';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/ticket-reselling-app";
 const app = express();
@@ -28,5 +29,6 @@ EventsController(app);
 UsersController(app);
 ReviewsController(app);
 TicketsController(app);
+FollowersController(app);
 
 app.listen(process.env.PORT || 4000);
