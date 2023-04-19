@@ -1,4 +1,5 @@
 import * as ticketsDao from './tickets-dao.js';
+import * as eventsDao from '../events/events-dao.js';
 
 const createTicket = async (req, res) => {
     const newTicket = await ticketsDao.createTicket(req.body);
@@ -25,7 +26,15 @@ const findTicketsByEventId = async (req, res) => {
 const findTicketsByUserId = async (req, res) => {
     const userId = req.params['userId'];
     const tickets = await ticketsDao.findTicketsByUserId(userId);
-    res.json(tickets);
+    const events = await eventsDao.findAllEvents();
+    const results = tickets.map(ticket => {
+        const event = events.find(event => event._id.toString() === ticket.eventId.toString());
+        return {
+            ...ticket,
+            event
+        }
+    })
+    res.json(results);
 }
 
 const updateTicket = async (req, res) => {
