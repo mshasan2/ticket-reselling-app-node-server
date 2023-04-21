@@ -55,6 +55,7 @@ export default (app) => {
     app.get('/api/reviews/:reviewId', findReviewById);
     app.get('/api/reviews/event/:eventId', findReviewsByEventId);
     app.get('/api/reviews/user/:userId', findReviewsByUserId);
+    
     app.put('/api/reviews/:reviewId', updateReview);
     app.delete('/api/reviews/:reviewId', deleteReview);
 }

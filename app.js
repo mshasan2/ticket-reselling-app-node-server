@@ -10,7 +10,9 @@ import FollowersController from './controllers/followers/followers-controller.js
 
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
-                          || 'mongodb://127.0.0.1:27017/ticket-reselling-app';
+                          || 'mongodb+srv://hasanmoh:VAqu5o1BVBQNrdwU@cluster0.oiswsac.mongodb.net/?retryWrites=true&w=majority';
+
+
 const app = express();
 app.use(session({
                     secret: "asdfasdfasdfasdf",
@@ -26,7 +28,7 @@ app.use(cors(
 ));
 
 app.use(express.json());
-mongoose.connect(CONNECTION_STRING).then(() => console.log("Server started"));
+mongoose.connect(CONNECTION_STRING).then(() => console.log("Database Connected"));
 EventsController(app);
 UsersController(app);
 ReviewsController(app);

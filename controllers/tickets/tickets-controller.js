@@ -3,8 +3,10 @@ import * as eventsDao from '../events/events-dao.js';
 
 const createTicket = async (req, res) => {
     const newTicket = await ticketsDao.createTicket(req.body);
+    console.log(newTicket);
     res.json(newTicket);
 }
+
 
 const findAllTickets = async (req, res) => {
     const tickets = await ticketsDao.findAllTickets();
