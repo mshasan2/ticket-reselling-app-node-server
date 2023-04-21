@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema(
     {
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+        eventId: {
+            type: String,
+            required: true,
         },
-        event: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Event",
+        userId: {
+            type: String,
+            required: true,
         },
         review: {
             type: String,

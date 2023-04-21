@@ -27,6 +27,7 @@ app.use(cors(
     }
 ));
 
+
 app.use(express.json());
 mongoose.connect(CONNECTION_STRING).then(() => console.log("Database Connected"));
 EventsController(app);
