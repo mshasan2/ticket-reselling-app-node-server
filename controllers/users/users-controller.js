@@ -21,8 +21,11 @@ const findUserById = async (req, res) => {
 }
 
 const findUserByUsername = async (req, res) => {
-    const username = req.params['username'];
+
+    console.log("Called",  req.params['Username']);
+    const username = req.params['Username'];
     const user = await usersDao.findUserByUsername(username);
+    console.log("Got info", user);
     res.json(user);
 }
 
@@ -126,11 +129,11 @@ export default (app) => {
     app.post('/api/users', createUser);
     app.get('/api/users', findAllUsers);
     app.get('/api/users/:userId', findUserById);
-    app.get('/api/users/:username', findUserByUsername);
+    app.get('/api/users/find/:Username', findUserByUsername);
     app.put('/api/users/:userId', updateUser);
     app.delete('/api/users/:userId', deleteUser);
     app.post('/api/users/register', register);
-    app.post('/api/users/login', login);
+    app.post('/api/users/user/login', login);
     app.post('/api/users/logout', logout);
 
 
