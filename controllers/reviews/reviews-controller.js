@@ -10,20 +10,18 @@ const findAllReviews = async (req, res) => {
     res.json(reviews);
 }
 
-const findReviewByEventId = async (req, res) => {
-    const eventId = req.params['eventId'];
-    console.log(eventId)
-    const reviewRet = await reviewsDao.findReviewsByEventId(eventId);
+const findReviewById = async (req, res) => {
+    const reviewId = req.params['reviewId'];
+    const reviewRet = await reviewsDao.findReviewById(reviewId);
     res.json(reviewRet);
 }
 
-
-const findReviewById = async (req, res) => {
-    const eventId = req.params['eventId']
-    const event = await reviewsDao.findEventById(eventId)
-    res.json(event)
+const findReviewsByEventId = async (req, res) => {
+    const eventId = req.params['eventId'];
+    console.log(eventId);
+    const reviews = await reviewsDao.findReviewsByEventId(eventId);
+    res.json(reviews);
 }
-
 
 const findReviewsByUserId = async (req, res) => {
     const userId = req.params['userId'];
@@ -55,9 +53,9 @@ const deleteReview = async (req, res) => {
 export default (app) => {
     app.post('/api/reviews', createReview);
     app.get('/api/reviews', findAllReviews);
-    app.get('/api/reviews/review/:reviewId', findReviewById);
-    app.get('/api/reviews/events/:eventId', findReviewByEventId);
-    app.get('/api/reviews/users/:userId', findReviewsByUserId);
+    app.get('/api/reviews/:reviewId', findReviewById);
+    app.get('/api/reviews/event/:eventId', findReviewsByEventId);
+    app.get('/api/reviews/user/:userId', findReviewsByUserId);
     app.put('/api/reviews/:reviewId', updateReview);
     app.delete('/api/reviews/:reviewId', deleteReview);
 }

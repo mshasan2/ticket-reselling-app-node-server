@@ -13,7 +13,6 @@ export const findReviewById = async (reviewId) => {
 }
 
 export const findReviewsByEventId = async (eventId) => {
-    console.log(eventId + " eventId in reviews-dao");
     return await ReviewModel.find({eventId: eventId});
 }
 

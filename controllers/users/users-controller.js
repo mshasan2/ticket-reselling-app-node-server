@@ -11,7 +11,8 @@ const findAllUsers = async (req, res) => {
 }
 
 const findUserById = async (req, res) => {
-    const userId = req.params['userId'];
+    const userId = req.params['_id'];
+    console.log(userId);
     const user = await usersDao.findUserById(userId);
     res.json(user);
 }

@@ -44,8 +44,6 @@ const searchEvents = async (req, res) => {
     res.json(events)
 }
 
-
-
 export default (app) => {
     app.get('/api/search', searchEvents)
     app.post('/api/events', createEvent)
