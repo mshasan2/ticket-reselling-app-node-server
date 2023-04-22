@@ -18,6 +18,7 @@ const findReviewById = async (req, res) => {
 
 const findReviewsByEventId = async (req, res) => {
     const eventId = req.params['eventId'];
+    console.log(eventId);
     const reviews = await reviewsDao.findReviewsByEventId(eventId);
     res.json(reviews);
 }

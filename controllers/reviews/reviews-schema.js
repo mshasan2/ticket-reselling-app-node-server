@@ -1,7 +1,35 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema({
-    text : {type: String, required: true},
-    user : {type: mongoose.Schema.Types.ObjectId, ref: 'events', required: true},
-    event : {type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true}
-}, {collection: 'reviews'})
+
+const Schema = new mongoose.Schema(
+    {
+        eventId: {
+            type: String,
+            required: true,
+        },
+        userId: {
+            type: String,
+            required: true,
+        },
+        review: {
+            type: String,
+            required: true,
+        },
+        liked: {
+            type: Boolean,
+            default: false,
+        },
+        likes: {
+            type: Number,
+            default: 0,
+        },
+        userHandle: {
+            type: String,
+            required: true,
+        },
+        avatar:{
+            type:String,
+            required: true
+        }
+    }, {collection: 'reviews'});
+
 export default Schema;

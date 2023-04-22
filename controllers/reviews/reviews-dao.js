@@ -13,11 +13,11 @@ export const findReviewById = async (reviewId) => {
 }
 
 export const findReviewsByEventId = async (eventId) => {
-    return await ReviewModel.find({event: eventId});
+    return await ReviewModel.find({eventId: eventId});
 }
 
 export const findReviewsByUserId = async (userId) => {
-    return await ReviewModel.find({user: userId});
+    return await ReviewModel.find({userId: userId});
 }
 
 export const updateReview = async (reviewId, review) => {

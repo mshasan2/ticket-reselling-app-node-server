@@ -19,3 +19,7 @@ export const updateEvent = async (eventId, event) => {
 export const deleteEvent = async (eventId) => {
     return await EventModel.deleteOne({_id: eventId})
 }
+
+export const searchEvents = async (query) => {
+    return await EventModel.find({$text: {$search: query}})
+}
