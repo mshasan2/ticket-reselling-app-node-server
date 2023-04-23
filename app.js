@@ -31,11 +31,13 @@ app.use(session({
                     secret: "asdfasdfasdfasdf",
                     resave: false,
                     saveUninitialized: false,
-                    cookie: {secure: false} // set to true if your using https
+                    cookie: {secure: true}
+                    //cookie: {secure: false} // set to true if your using https
                 }));
 app.use(cors(
     {
-        origin: "http://localhost:3000", //change to process.env.CLIENT_URL
+        // origin: "http://localhost:3000", //change to process.env.CLIENT_URL
+        origin: "https://master--deft-moonbeam-2c9a49.netlify.app/",
         credentials: true
     }
 ));
